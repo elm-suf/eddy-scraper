@@ -3,6 +3,8 @@ const cors = require("cors");
 const instaTouch = require("instatouch");
 
 const app = express();
+app.use(express.static('client'));
+
 const port = process.env.PORT || 6969;
 
 const allowedOrigins = ["http://localhost:3000", "http://localhost:8080"];
