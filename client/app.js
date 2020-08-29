@@ -3,7 +3,7 @@ document.getElementById("btn").onclick = (evt) => getData();
 async function getData() {
   const placeId = document.getElementById("placeId").value;
   const count = document.getElementById("count").value;
-  const port = process.env.PORT || 6969;
+  const port = 6969;
 
   fetch(`http://localhost:${port}/data/${placeId}/${count}`)
     .then((response) => response.blob())
