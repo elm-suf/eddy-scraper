@@ -3,7 +3,7 @@ const cors = require("cors");
 const instaTouch = require("instatouch");
 
 const app = express();
-const port = 6969;
+const port = process.env.PORT || 6969;
 
 const allowedOrigins = ["http://localhost:3000", "http://localhost:8080"];
 
@@ -23,14 +23,12 @@ app.use(
 );
 
 app.get("/data/:placeId/:count", async (req, res) => {
-  
-  const placeId= req.params.placeId;
-  const count= req.params.count;
-  const options = { count:count, mediaType: "all", filetype: "csv" };
-  
-  
-  console.log('Pid', placeId);
-  console.log('count', count);
+  const placeId = req.params.placeId;
+  const count = req.params.count;
+  const options = { count: count, mediaType: "all", filetype: "csv" };
+
+  console.log("Pid", placeId);
+  console.log("count", count);
   try {
     const location = await instaTouch.location(placeId, options);
 

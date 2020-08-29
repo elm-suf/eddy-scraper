@@ -1,11 +1,11 @@
 document.getElementById("btn").onclick = (evt) => getData();
 
 async function getData() {
-  console.log("cacca");
   const placeId = document.getElementById("placeId").value;
   const count = document.getElementById("count").value;
+  const port = process.env.PORT || 6969;
 
-  fetch(`http://localhost:6969/data/${placeId}/${count}`)
+  fetch(`http://localhost:${port}/data/${placeId}/${count}`)
     .then((response) => response.blob())
     .then((blob) => {
       var url = window.URL.createObjectURL(blob);
