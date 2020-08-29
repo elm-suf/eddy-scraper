@@ -5,7 +5,7 @@ async function getData() {
   const count = document.getElementById("count").value;
   const port = 6969;
 
-  fetch(`http://localhost:${port}/data/${placeId}/${count}`)
+  fetch(`/data/${placeId}/${count}`)
     .then((response) => response.blob())
     .then((blob) => {
       var url = window.URL.createObjectURL(blob);
