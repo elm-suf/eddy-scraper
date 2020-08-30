@@ -18,9 +18,7 @@ app.get("/data/:placeId/:count", async (req, res) => {
   console.log("count", count);
   try {
     const location = await instaTouch.location(placeId, options);
-
-    console.log("loc: " + location);
-
+    // console.log("loc: " + JSON.stringify(location));
     res.sendFile(location.csv);
   } catch (error) {
     res.send("sorry");
